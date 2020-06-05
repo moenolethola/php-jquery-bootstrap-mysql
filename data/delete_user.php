@@ -17,7 +17,7 @@ if (isset($_POST['id']))
          //set parameters
         $params = array(":id" => $id);
         //execute query
-        $stmt = $conn->executeQueryWithParameters($query, $params);
+        $stmt = $conn->executeQuery($query, $params);
         //get number of records
         $count = $stmt->rowCount();
     }
