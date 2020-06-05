@@ -33,26 +33,13 @@ class DBConnection
         $this->conn = null;
     }
 
-    public function executeQuery($query)
-    {
-        //prepare query
-        $stmt = $this->conn->prepare($query);
-        //execute query
-        $stmt->execute();
-        return($stmt);
-    }
-
     /**
-    * Works for all database update queries: INSERT, UPDATE, DELETE
-    * // Usage
-        $query = 'UPDATE table1 SET col1 = :input1 WHERE id = :id';
-        $params = array(':input1' => 'dynamic param binding works', ':id' => 5);
     * @param string $query
     * @param array $params
     * @return $stmt
     * @throws Exception
     */
-    public function executeQueryWithParameters($query, $params)
+    public function executeQuery($query, $params = array())
     {
         // validate parameters
         if(empty($query))
